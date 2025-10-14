@@ -42,18 +42,28 @@ Transactions Amount
       //2. Print the total amount credited and debited in account
            int creditSum=0;
            int debitSum=0;
+           int suspiciousCredit=0;
+           int suspiciousDebit=0;
            for(int i=0;i<credit.size();i++) {     //credit loop
         	   
         	   creditSum=creditSum+credit.get(i);
+        	   if(credit.get(i)>10000) {           //suspicious credit
+        		   suspiciousCredit++;
+        	   }
+  
            }
            System.out.println("credit amount is : "+creditSum);
+           System.out.println("suspicious credits is :"+suspiciousCredit);
            
            for(int i=0;i<debit.size();i++) {      //debit loop
         	   
         	   debitSum=debitSum+debit.get(i);
+        	   if(debit.get(i)<-10000 ) {             //suspicious debit 
+        		   suspiciousDebit++;
+        	   }
            }
            System.out.println("debit amount is : "+debitSum);
-           
+           System.out.println("suspicious debit is :"+suspiciousDebit);  
            
            
        //3. Print total amount remaining at the end in Bank Account
@@ -63,20 +73,11 @@ Transactions Amount
        
        /*4. If any transaction limit exceeds +/- 10000 then print the message “Suspicious credit/ debit
            Transaction with Amount” and also print total number of suspicious transactions */
-           
-           List<List<Integer>> totalTransactions=new LinkedList<List<Integer>>();
-           totalTransactions.add(credit);
-           totalTransactions.add(debit);
-           
-           System.out.println(totalTransactions);
-           for(int i=0;i<totalTransactions.size();i++) {
-        	   
-        	  System.out.println(totalTransactions.get(i));
-        	   
-        	          	   
-           }
-           
+           int suspiciousTransactions=suspiciousCredit+suspiciousDebit;
+           System.out.println("total suspicious Transactions :"+suspiciousTransactions);
+                     
            
 	}
-
+	
 }
+       
