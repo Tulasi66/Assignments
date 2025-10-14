@@ -32,10 +32,10 @@ o If the DTI ratio is 40% or greater, the loan is denied.
 		 */
 
 		
-		if(creditScore>750) {
+		if(creditScore>=750) {
 			System.out.println("the loan is automatically approved");
 		}
-		else if(creditScore>650 && creditScore<750) {
+		else if(creditScore>=650 && creditScore<750) {
 			System.out.println("additional checks are performed");
 			if(income>=50000) {
 				System.out.println("the loan to be considered");
